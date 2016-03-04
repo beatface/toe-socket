@@ -17,14 +17,23 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', function(socket){
-    // console.log('a user connected');
-    // socket.on('chat message', function(msg){
-    //     console.log('message: ' + msg);
-    //     io.emit('chat message', {
-    //         name: msg.name,
-    //         message: msg.message,
-    //     });
-    // });
+    socket.join('/poop');
+    console.log(socket.id);
+    console.log(socket.nsp.adapter.rooms);
+    socket.on('o moved', function(move){
+        // console.log('O move position: ' + move);
+        socket.to('/poop').emit('o moved', {
+            count: move.count,
+            move: move.move
+        });
+    });
+    socket.on('x moved', function(move){
+        // console.log('X move position: ' + move);
+        socket.broadcast.emit('x moved', {
+            count: move.count,
+            move: move.move
+        });
+    });
     socket.on('disconnect', function(){
         console.log('user disconnected');
         io.emit('someone disconnected', '1 user left the room');

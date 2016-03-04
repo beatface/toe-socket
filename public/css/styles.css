@@ -1,16 +1,31 @@
 /*******tic-tac-toe******/
 #tic-tac-toe .disable {
-    text-transform:uppercase; font-size:30px; font-family:Georgia, "Times New Roman", Times, serif
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family: Georgia, "Times New Roman", Times, serif
 }
 
 #tic-tac-toe #game li {
-    float:left; padding:0; list-style:none; text-align:center; margin-bottom:20px; color:#fff; height:60px; line-height:60px; font-size:40px; color:#ccc}
+    float:left;
+    padding:0;
+    list-style:none;
+    text-align:center;
+    margin-bottom:20px;
+    color:#fff;
+    height:60px;
+    line-height:60px;
+    font-size:40px;
+    color:#ccc
+}
 
 #tic-tac-toe #game li.disable{
-    color:#fff}
+    color:#fff
+}
 
 #tic-tac-toe #game {
-    float:left; padding:0; clear:both
+    float: left;
+    padding: 0;
+    clear: both;
 }
 
 .new_span {
@@ -22,11 +37,11 @@
  }
 
 .input-prepend span.pre_text {
-    width:55px
+    width: 55px;
 }
 
 .input-prepend .span1{
-    width:93px
+    width: 93px;
 }
 
 .input-prepend {

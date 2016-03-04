@@ -6,6 +6,7 @@
     "globals": {
         "$": true,
         "document":true,
-        "alert": true
+        "alert": true,
+        "io": true
     }
 }
