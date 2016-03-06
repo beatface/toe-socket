@@ -2,7 +2,7 @@
 
 // JavaScript Document
 $(document).ready(function() {
-    const socket = io.connect('/poop');
+    const socket = io.connect();
     console.log(socket);
     var x = "x";
     var o = "o";
@@ -62,6 +62,7 @@ $(document).ready(function() {
         const xMoveNum = `#${info.move}`;
         console.log("move is: ", xMoveNum);
         count = info.count;
+        console.log(`count is now: ${count}`);
         $(`${xMoveNum}`).addClass('disable x btn-info').html('x');
         x_won();
     });
@@ -109,8 +110,7 @@ $(document).ready(function() {
             $("#game li").removeClass('btn-primary');
             $("#game li").removeClass('btn-info');
         // tests if all squares are clicked but there is no winner
-        } else if (count == 9) {
-        //  if (count == 9) {
+        } else if (count === 9) {
 
             alert('Its a tie. It will restart.');
             $("#game li").text("+");
@@ -122,11 +122,9 @@ $(document).ready(function() {
             count = 0;
         // tests if square is already clicked
         } else if ($(this).hasClass('disable')) {
-
             alert('Already selected');
-        //
+        // checks for o's turn move
         } else if (count%2 === 0) {
-            // console.log("o: ",this);
             count++;
             $(this).text(o);
             $(this).addClass('disable o btn-primary');
@@ -137,7 +135,7 @@ $(document).ready(function() {
             });
 
             o_won();
-
+        // checks for x's turn move
         } else {
             console.log("x: ", this);
             count++;
